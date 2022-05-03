@@ -1,0 +1,66 @@
+header {
+    font-size: 30px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+input {
+    align-items: flex-end;
+}
+
+header span {
+    font-style: italic;
+}
+
+h3 {
+    text-align: center;
+    margin-top: -40px;
+}
+
+#field {
+    display: block;
+    padding: auto;
+    margin: 0 auto;
+    align-items: center;
+    margin-top: 1                                                                                                                                              00px;
+}
+
+#secret {
+    margin: 20px auto;
+    text-align: center;
+    font-size: 30px;
+}
+
+#underScores {
+    margin-top: -60px;
+    margin-bottom: 50px;
+    font-size: 50px ;
+    text-align:center;
+    padding: 20px;
+}
+
+#start {
+    background-color: black;
+    color: aliceblue;
+    font-size: 20px;
+    display: inline-block;
+    justify-content: center;
+    text-align: center;
+}
+#start button {
+    align-items: center;
+}
+
+#guesses {
+
+    margin: auto;
+    background-color: black;
+    text-align: center;
+    padding: 10px;
+}
+#guesses button {
+    margin: auto;
+    justify-content: center;
+    padding: 5px;
+    font-size: 25px;
+}
