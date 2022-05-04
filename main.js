@@ -1,52 +1,49 @@
 class SecretWord {
-    constructor(level,words) {
+    constructor(level,words,guesses,underScores) {
         this.level = 0;
         this.words = words;
+        this.guesses = 4;
+        // this.underScores = [];
     }
+    
 }
 
 // Load screen has player instructions and start button
-
 // }
 let start = document.getElementById("start");
 let answer = "";
-let level1 = new SecretWord(0,['ADULT','AGENT','ANGER','APPLE','AWARD','BEACH','BIRTH','BLOCK','BOARD','BRAIN','BREAD','CHAIN','CHAIR','CHEST','CHIEF','CHILD','CLASS','CLOCK','COACH','COAST','COURT','COVER','CREAM','CROWN','CYCLE','DANCE','DEPTH','DOUBT','DRAFT','DRAMA','DREAM','DRESS','FLOOR','FOCUS','FORCE','FRAME','FRONT','FRUIT','GLASS','GRASS','GREEN','HORSE','HOTEL','HOUSE','IMAGE','INDEX','INPUT','ISSUE','JUDGE','KNIFE','LAYER','LEVEL','LIGHT','LIMIT','LUNCH','MAJOR','MARCH','MATCH','METAL','MODEL','MONEY','MONTH','NORTH','NOVEL','NURSE','OFFER','ORDER','PAPER','PARTY','PEACE','PROOF','QUEEN','RADIO','RANGE','RATIO','ROUND','ROUTE','SCALE','SCENE','SHEEP','SHEET','SHIFT','SHIRT','SMOKE','SOUND','SOUTH','SPACE','STYLE','SUGAR','TABLE','TASTE','THEME','THING','TITLE','TOTAL','TOUCH','UNCLE','UNION','UNITY','VALUE','VIDEO','VISIT','VOICE','WASTE','WATCH','WATER','WHILE','WOMAN','WORLD','YOUTH']);
-let underScore = [];
+let level1 = new SecretWord(0,['ADULT','AGENT','ANGER','APPLE','AWARD','BEACH','BIRTH','BLOCK','BOARD','BRAIN','BREAD','CHAIN','CHAIR','CHEST','CHIEF','CHILD','CLASS','CLOCK','COACH','COAST','COURT','COVER','CREAM','CROWN','CYCLE','DANCE','DEPTH','DOUBT','DRAFT','DRAMA','DREAM','DRESS','FLOOR','FOCUS','FORCE','FRAME','FRONT','FRUIT','GLASS','GRASS','GREEN','HORSE','HOTEL','HOUSE','IMAGE','INDEX','INPUT','ISSUE','JUDGE','KNIFE','LAYER','LEVEL','LIGHT','LIMIT','LUNCH','MAJOR','MARCH','MATCH','METAL','MODEL','MONEY','MONTH','NORTH','NOVEL','NURSE','OFFER','ORDER','PAPER','PARTY','PEACE','PROOF','QUEEN','RADIO','RANGE','RATIO','ROUND','ROUTE','SCALE','SCENE','SHEEP','SHEET','SHIFT','SHIRT','SMOKE','SOUND','SOUTH','SPACE','STYLE','SUGAR','TABLE','TASTE','THEME','THING','TITLE','TOTAL','TOUCH','UNCLE','UNION','UNITY','VALUE','VIDEO','VISIT','VOICE','WASTE','WATCH','WATER','WHILE','WOMAN','WORLD','YOUTH'],0,[]);
 
 start.addEventListener('click', () => {
    answer = level1.words[Math.floor(Math.random() * level1.words.length)];
    console.log(answer); 
+   for (let i=0 ; i < answer.length; i++) {
+
+   const letterDiv = document.createElement('div');
+   letterDiv.classList.add("letter");
+   const secretDiv = document.querySelector("#underScores");
+   secretDiv.appendChild(letterDiv);
+   document.getElementById("start").style.display = "none";
    
+   }
 })
 //     player character appears in field with a cow and UFO can be seen in the distance
 
+document.querySelector("#remainingGuesses").innerHTML = " " + level1.guesses;
+
 //     A random word of specific length is generated
-function guessedWord() {
-    underScore = answer.split('').map()
-}
-
-
-
-// while (remainingLetters > 0) {
-//     document.getElementById("underScores") = underScore.join(" ");
-// } 
 
 //     Clickable alphabet populates on screen 
-document.getElementById("A").addEventListener('click', (e) => {
-    for (let j = 0; j < answer.length; j++) {
-        for (let i = 0; i < answer.length; i++) {
-            underScore[i] = "_";
+document.getElementById("A").addEventListener('click', (e) => { 
+        if (level1.answer.includes("A")) {
+            if ( guesses > 0 ) {
+                this.guesses -= 1;
+                console.log("guesses");
+            console.log(A.innerText);  
+            } else {
+                alert("Letter Not Found");
+            }
         }
-    let remainingLetters = answer.length;
-    if(answer.indexOf(A.innerText) > -1) {
-        if(answer[j] === A.innerText) {
-        underScore[j] = A.innerText;
-        console.log(true);
-        remainingLetters--;
-        console.log(A.innerText);
-        }
-      }
-    }    
 })    
 document.getElementById("B").addEventListener('click', (e) => {
     console.log(B.innerText);    
@@ -127,8 +124,6 @@ document.getElementById("Z").addEventListener('click', (e) => {
 // When player chooses a letter
 //     that letter disapears from the choose options
 // guesses.onclick = function(e) {
-//     if(words.contains(onclick.innerText) {
-//         print(innerText)
 // }
 // If player guesses a correct letter
 //     letter(s) in answer becomes visible
