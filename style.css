@@ -1,3 +1,8 @@
+#gameName {
+    margin: 0 auto;
+    padding-bottom: 5px;
+}
+
 header {
     font-size: 30px;
     text-align: center;
@@ -16,13 +21,17 @@ h3 {
     text-align: center;
     margin-top: -40px;
 }
+#ufo {
+    width: 20%;
+    float: right;
+}
 
 #field {
     display: block;
     padding: auto;
     margin: 0 auto;
     align-items: center;
-    margin-top: 1                                                                                                                                              00px;
+    width: 100%;                                                                                                                                          00px;
 }
 
 #secret {
@@ -62,6 +71,12 @@ h3 {
     text-align: center;
     padding: 10px;
 }
+#guesses p {
+    font-size: 25px;
+    color: white;
+    margin: 0%;
+    padding-bottom: 5px;
+}
 #guesses button {
     margin: auto;
     justify-content: center;
@@ -70,10 +85,13 @@ h3 {
 }
 .letter {
 
-    border-bottom: 1px solid black;
     width: 50px;
     height: 50px;
 }
 #guessesLeft {
     font-size: 20px;
+}
+.letter p {
+    border-bottom: 1px solid black;
+
 }

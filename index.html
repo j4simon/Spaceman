@@ -9,23 +9,29 @@
     <title>Astro-Not</title>
 </head>
 <body>
+    <div id="gameName">
     <header>
         <h1>Astro-<span>Not</span></h1>
     </header>    
         <h3>A 'Hangman/Spaceman' Style Guessing Game</h3>
-  
+    </div>
     <div id="start">
         <p>Oh, no! You've spotted a UFO in the distance! You must now correctly guess all of the letters in the secret word in order to keep the alien from abducting your character. Each wrong guess will bring the UFO that much closer.</p>
-        <p> Click <button type="button">Start</button> to begin. Good luck!</p>
-        
+        <p> Click <button type="button">Start</button> to begin. Good luck!</p>      
     </div>
+    <div id="afterStart" style="display: none">
+        <div id="guessesLeft">Remaining Guesses:<span id="remainingGuesses"> </span></div>
+        <br>
+        <div id="secret">
+            <p> Secret Word: </p>
+        <div id="underScores"></div>
+        </div>
+    </div>
+    <img id="ufo" src="/Images/UFO1.png">
     <img id="field" src="/Images/markup.jpg">
-<div id="secret">
-    <p> Secret Word: </p>
-<div id="underScores"></div>
-</div>
-<div id="guessesLeft">Remaining Guesses:<span id="remainingGuesses"> </span></div>
+
     <div id="guesses">
+        <p>Choose Your Letter:</p>
         <button id="A" type="button">A</button>
         <button id="B" type="button">B</button>
         <button id="C" type="button">C</button>
