@@ -12,7 +12,7 @@ class SecretWord {
 // }
 let start = document.getElementById("start");
 let answer = "";
-let level1 = new SecretWord(0,['ADULT','AGENT','ANGER','APPLE','AWARD','BEACH','BIRTH','BLOCK','BOARD','BRAIN','BREAD','CHAIN','CHAIR','CHEST','CHIEF','CHILD','CLASS','CLOCK','COACH','COAST','COURT','COVER','CREAM','CROWN','CYCLE','DANCE','DEPTH','DOUBT','DRAFT','DRAMA','DREAM','DRESS','FLOOR','FOCUS','FORCE','FRAME','FRONT','FRUIT','GLASS','GRASS','GREEN','HORSE','HOTEL','HOUSE','IMAGE','INDEX','INPUT','ISSUE','JUDGE','KNIFE','LAYER','LEVEL','LIGHT','LIMIT','LUNCH','MAJOR','MARCH','MATCH','METAL','MODEL','MONEY','MONTH','NORTH','NOVEL','NURSE','OFFER','ORDER','PAPER','PARTY','PEACE','PROOF','QUEEN','RADIO','RANGE','RATIO','ROUND','ROUTE','SCALE','SCENE','SHEEP','SHEET','SHIFT','SHIRT','SMOKE','SOUND','SOUTH','SPACE','STYLE','SUGAR','TABLE','TASTE','THEME','THING','TITLE','TOTAL','TOUCH','UNCLE','UNION','UNITY','VALUE','VIDEO','VISIT','VOICE','WASTE','WATCH','WATER','WHILE','WOMAN','WORLD','YOUTH'],6,[]);
+let level1 = new SecretWord(0,['ADULT','AGENT','ANGER','APPLE','AWARD','BEACH','BIRTH','BLOCK','BOARD','BRAIN','BREAD','CHAIN','CHAIR','CHEST','CHIEF','CHILD','CLASS','CLOCK','COACH','COAST','COURT','COVER','CREAM','CROWN','CYCLE','DANCE','DEPTH','DOUBT','DRAFT','DRAMA','DREAM','DRESS','FLOOR','FOCUS','FORCE','FRAME','FRONT','FRUIT','GLASS','GRASS','GREEN','HORSE','HOTEL','HOUSE','IMAGE','INDEX','INPUT','ISSUE','JUDGE','KNIFE','LAYER','LEVEL','LIGHT','LIMIT','LUNCH','MAJOR','MARCH','MATCH','METAL','MODEL','MONEY','MONTH','NORTH','NOVEL','NURSE','OFFER','ORDER','PAPER','PARTY','PEACE','PROOF','QUEEN','RADIO','RANGE','RATIO','ROUND','ROUTE','SCALE','SCENE','SHEEP','SHEET','SHIFT','SHIRT','SMOKE','SOUND','SOUTH','SPACE','STYLE','SUGAR','TABLE','TASTE','THEME','THING','TITLE','TOTAL','TOUCH','UNCLE','UNION','UNITY','VALUE','VIDEO','VISIT','VOICE','WASTE','WATCH','WATER','WHILE','WOMAN','WORLD','YOUTH'],6);
 
 start.addEventListener('click', () => {
    answer = level1.words[Math.floor(Math.random() * level1.words.length)];
@@ -31,8 +31,12 @@ start.addEventListener('click', () => {
    document.getElementById("afterStart").style.display = "block";
    document.getElementById("gameName").style.backgroundColor = "black";
    document.getElementById("gameName").style.color = "white";
-   clickGuess(letterText)
+   clickGuess(letterText,level1) 
+   
+//    document.querySelector("#remainingGuesses").innerHTML = " " + remaining;
+
    }
+   
 })
 //     player character appears in field with a cow and UFO can be seen in the distance
 
@@ -41,8 +45,7 @@ document.querySelector("#remainingGuesses").innerHTML = " " + level1.guesses;
 //     A random word of specific length is generated
 
 //     Clickable alphabet populates on screen 
-function clickGuess (letterText) {
-let totalGuesses = 0;
+function clickGuess (letterText,level1) {
 
 document.getElementById("A").addEventListener('click', (e) => { 
        e.target.style.backgroundColor = "black";
@@ -50,36 +53,29 @@ document.getElementById("A").addEventListener('click', (e) => {
        console.log(A.innerText); 
        if (letterText.textContent.includes("A")) {
         letterText.style.color = "black";
-       } else {
-           totalGuesses += 1;
-           console.log(totalGuesses);
-       }
+       } 
 })    
 document.getElementById("B").addEventListener('click', (e) => {
     e.target.style.backgroundColor = "black";
     e.target.style.color = "darkgray";
     console.log(B.innerText);  
-    guesses -= 1;
     if (letterText.textContent.includes("B")) {
      letterText.style.color = "black";
     }else {
-        totalGuesses += 1;
-        console.log(totalGuesses);
+        guesses -= 1;
+        console.log(level1.guesses);
     }
-
 })  
 document.getElementById("C").addEventListener('click', (e) => {
     e.target.style.backgroundColor = "black";
     e.target.style.color = "darkgray";
     console.log(C.innerText);    
-    guesses -= 1;
     if (letterText.textContent.includes("C")) {
      letterText.style.color = "black";
-    }else {
-        totalGuesses += 1;
-        console.log(totalGuesses);
+    } else {
+        guesses -= 1;
+        console.log(level1.guesses);
     }
-
 })  
 document.getElementById("D").addEventListener('click', (e) => {
     e.target.style.backgroundColor = "black";
