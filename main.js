@@ -30,8 +30,8 @@ start.addEventListener('click', () => {
     letterDiv.appendChild(letterText);
     const secretDiv = document.querySelector("#underScores");
     secretDiv.appendChild(letterDiv);
-    document.getElementById("start").style.display = "none";
-    document.getElementById("afterStart").style.display = "block";
+    document.getElementById("start").style="display: none";
+    document.getElementById("afterStart").style="display: block";
     document.getElementById("gameName").style.backgroundColor = "black";
     document.getElementById("gameName").style.color = "white";
     document.getElementById("restart").style="display: block"
