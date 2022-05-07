@@ -30,8 +30,8 @@ start.addEventListener('click', () => {
     letterDiv.appendChild(letterText);
     const secretDiv = document.querySelector("#underScores");
     secretDiv.appendChild(letterDiv);
-    document.getElementById("start").style="display: none";
-    document.getElementById("afterStart").style="display: block";
+    document.getElementById("start").style.display = "none";
+    document.getElementById("afterStart").style.display = "block";
     document.getElementById("gameName").style.backgroundColor = "black";
     document.getElementById("gameName").style.color = "white";
     document.getElementById("restart").style="display: block"
@@ -76,29 +76,29 @@ function btnClickListener(e) {
         level1.guesses -= 1;
     }
     if(level1.guesses === 5){
-        document.getElementById("ufo").style="width: 30%";
-        document.getElementById("ufo").style="borderBottom: 30px";
-        document.getElementById("ufo").style="marginLeft: 10px";
+        document.getElementById("ufo").style.width = "30%";
+        document.getElementById("ufo").style.borderBottom = "30px";
+        document.getElementById("ufo").style.marginLeft = "10px";
     } else if(level1.guesses === 4){
-        document.getElementById("ufo").style="width: 40%";
-        document.getElementById("ufo").style="borderBottom: 20px";
-        document.getElementById("ufo").style="marginLeft: 20px";
+        document.getElementById("ufo").style.width = "40%";
+        document.getElementById("ufo").style.borderBottom = "20px";
+        document.getElementById("ufo").style.marginLeft = "20px";
     } else if(level1.guesses === 3){
-        document.getElementById("ufo").style="width: 50%";
-        document.getElementById("ufo").style="borderBottom: 10px";
-        document.getElementById("ufo").style="marginLeft: 30px";
+        document.getElementById("ufo").style.width = "50%";
+        document.getElementById("ufo").style.borderBottom = "10px";
+        document.getElementById("ufo").style.marginLeft = "30px";
     } else if(level1.guesses === 2){
-        document.getElementById("ufo").style="width: 60%";
-        document.getElementById("ufo").style="borderBottom: 0px";
-        document.getElementById("ufo").style="marginLeft: 30px";
+        document.getElementById("ufo").style.width = "60%";
+        document.getElementById("ufo").style.borderBottom = "0px";
+        document.getElementById("ufo").style.marginLeft = "30px";
     } else if(level1.guesses === 1){
-        document.getElementById("ufo").style="width: 70%";
-        document.getElementById("ufo").style="borderBottom: -10px";
-        document.getElementById("ufo").style="marginLeft: 30px";
+        document.getElementById("ufo").style.width = "70%";
+        document.getElementById("ufo").style.borderBottom = "-20px";
+        document.getElementById("ufo").style.marginLeft = "30px";
     } else if(level1.guesses === 0){
-        document.getElementById("field").style="display: none";
-        document.getElementById("lost").style="display: block";
-        document.getElementById("ufo").style="display: none";
+        document.getElementById("field").style.display= "none";
+        document.getElementById("lost").style.display= "block";
+        document.getElementById("ufo").style.display= "none";
         alert("You've been abducted. Enjoy your new life as an astronaut.");
         alert("Refresh page to try again");
     }
