@@ -1,4 +1,3 @@
-'use strict';
 class SecretWord {
     constructor(level,words,guesses) {
         this.level = level;
