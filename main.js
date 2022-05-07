@@ -1,59 +1,100 @@
+'use strict';
 class SecretWord {
-    constructor(level,words,guesses,underScores) {
-        this.level = 0;
+    constructor(level,words,guesses) {
+        this.level = level;
         this.words = words;
         this.guesses = guesses;
-        // this.underScores = [];
-    }
-    
+        
+    }  
 }
+
 
 // Load screen has player instructions and start button
 // }
 let start = document.getElementById("start");
 let answer = "";
+let letters = [];
 let level1 = new SecretWord(0,['ADULT','AGENT','ANGER','APPLE','AWARD','BEACH','BIRTH','BLOCK','BOARD','BRAIN','BREAD','CHAIN','CHAIR','CHEST','CHIEF','CHILD','CLASS','CLOCK','COACH','COAST','COURT','COVER','CREAM','CROWN','CYCLE','DANCE','DEPTH','DOUBT','DRAFT','DRAMA','DREAM','DRESS','FLOOR','FOCUS','FORCE','FRAME','FRONT','FRUIT','GLASS','GRASS','GREEN','HORSE','HOTEL','HOUSE','IMAGE','INDEX','INPUT','ISSUE','JUDGE','KNIFE','LAYER','LEVEL','LIGHT','LIMIT','LUNCH','MAJOR','MARCH','MATCH','METAL','MODEL','MONEY','MONTH','NORTH','NOVEL','NURSE','OFFER','ORDER','PAPER','PARTY','PEACE','PROOF','QUEEN','RADIO','RANGE','RATIO','ROUND','ROUTE','SCALE','SCENE','SHEEP','SHEET','SHIFT','SHIRT','SMOKE','SOUND','SOUTH','SPACE','STYLE','SUGAR','TABLE','TASTE','THEME','THING','TITLE','TOTAL','TOUCH','UNCLE','UNION','UNITY','VALUE','VIDEO','VISIT','VOICE','WASTE','WATCH','WATER','WHILE','WOMAN','WORLD','YOUTH'],6);
 
 start.addEventListener('click', () => {
+
    answer = level1.words[Math.floor(Math.random() * level1.words.length)];
    console.log(answer); 
    for (let i=0 ; i < answer.length; i++) {
-
-   const letterDiv = document.createElement('div');
-   const letterText = document.createElement("p");
-   letterText.style.color = "white";
-   letterText.innerText = answer[i];
-   letterDiv.classList.add("letter");
-   letterDiv.appendChild(letterText);
-   const secretDiv = document.querySelector("#underScores");
-   secretDiv.appendChild(letterDiv);
-   document.getElementById("start").style.display = "none";
-   document.getElementById("afterStart").style.display = "block";
-   document.getElementById("gameName").style.backgroundColor = "black";
-   document.getElementById("gameName").style.color = "white";
-   clickGuess(letterText,level1) 
+    const letterDiv = document.createElement('div');
+    const letterText = document.createElement("p");
+    letterText.style.color = "white";
+    letterText.innerText = answer[i];
+    letters.push(letterText);
+    // debugger
+    letterDiv.classList.add("letter");
+    letterDiv.appendChild(letterText);
+    const secretDiv = document.querySelector("#underScores");
+    secretDiv.appendChild(letterDiv);
+    document.getElementById("start").style.display = "none";
+    document.getElementById("afterStart").style.display = "block";
+    document.getElementById("gameName").style.backgroundColor = "black";
+    document.getElementById("gameName").style.color = "white";
+  
    
 //    document.querySelector("#remainingGuesses").innerHTML = " " + remaining;
 
    }
-   
+   clickGuess()  
 })
-//     player character appears in field with a cow and UFO can be seen in the distance
 
+//     player character appears in field with a cow and UFO can be seen in the distance
 document.querySelector("#remainingGuesses").innerHTML = " " + level1.guesses;
 
 //     A random word of specific length is generated
 
 //     Clickable alphabet populates on screen 
-function clickGuess (letterText,level1) {
+function clickGuess () {
 
 document.getElementById("A").addEventListener('click', (e) => { 
+
        e.target.style.backgroundColor = "black";
        e.target.style.color = "darkgray";
-       console.log(A.innerText); 
-       if (letterText.textContent.includes("A")) {
-        letterText.style.color = "black";
-       } 
+    //    console.log(A.innerText); 
+    //    if (letterText.textContent.includes("A")) {
+    //     letterText.style.color = "black";
+    //    } 
+    // for every p element 
+    let j = 0; 
+    let letterMatch = false; 
+
+    while (j < letters.length) {
+        console.log(j);
+        // see if matches letter A
+        if (letters[j].textContent === "A"){
+            //if does, make visible
+            letters[j].style.color = "black";
+            letterMatch = true;
+        };
+        j = j+1;
+    }
+    console.log("Found Letter A:" + letterMatch);
+
+    // if no letters matc
+    if(letterMatch === false){
+        //subtract 1 from remaining guesses
+        level1.guesses -= 1;
+    }
+    document.querySelector("#remainingGuesses").innerHTML = " " + level1.guesses;
+
+    let allLettersBlack = true;
+    let l = 0;
+    //if allLettersBlack = true
+    console.log("Checking to see if all elements are black")
+    while(l < letters.length){
+        //player has won the game
+        if(letters[l].style.color == "white"){ 
+            console.log("Found white element at " + l )
+            allLettersBlack = false;
+        }
+        l = l+1;
+    }
+    console.log("allLettersBlack = " + allLettersBlack);
 })    
 document.getElementById("B").addEventListener('click', (e) => {
     e.target.style.backgroundColor = "black";
@@ -62,7 +103,7 @@ document.getElementById("B").addEventListener('click', (e) => {
     if (letterText.textContent.includes("B")) {
      letterText.style.color = "black";
     }else {
-        guesses -= 1;
+        level1.guesses -= 1;
         console.log(level1.guesses);
     }
 })  
@@ -73,7 +114,7 @@ document.getElementById("C").addEventListener('click', (e) => {
     if (letterText.textContent.includes("C")) {
      letterText.style.color = "black";
     } else {
-        guesses -= 1;
+        level1.guesses -= 1;
         console.log(level1.guesses);
     }
 })  
