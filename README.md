@@ -1,6 +1,8 @@
 # Spaceman (Astro-Not)
 
-/Assets/Astro-Not Screenshot.png
+https://j4simon.github.io/Spaceman/
+
+<img src="/Assets/Astro-Not Screenshot.png">
 
 # Technologies Used
 
@@ -14,9 +16,9 @@ As a player, you are being approached by a UFO. In order to avoid capture, you m
 
 # Wireframes
 
-/Assets/Wireframe Start Page.png
-/Assets/Wireframe Gameplay.png
-/Assets/Wireframe Winner.png
+<img src="/Assets/Wireframe Start Page.png">
+<img src="/Assets/Wireframe Gameplay.png">
+<img src="/Assets/Wireframe Winner.png">
 
 # Unsolved Problems
 
