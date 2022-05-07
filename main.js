@@ -35,6 +35,7 @@ start.addEventListener('click', () => {
     document.getElementById("afterStart").style.display = "block";
     document.getElementById("gameName").style.backgroundColor = "black";
     document.getElementById("gameName").style.color = "white";
+    document.getElementById("restart").style="display: block"
   
    
 //    document.querySelector("#remainingGuesses").innerHTML = " " + remaining;
@@ -46,39 +47,64 @@ start.addEventListener('click', () => {
 //     player character appears in field with a cow and UFO can be seen in the distance
 document.querySelector("#remainingGuesses").innerHTML = " " + level1.guesses;
 
+//restart button
+
+
 //     A random word of specific length is generated
 
 //     Clickable alphabet populates on screen 
-function clickGuess () {
+function btnClickListener(e) {
 
-document.getElementById("A").addEventListener('click', (e) => { 
+    let currentLetter = e.target.textContent
 
        e.target.style.backgroundColor = "black";
        e.target.style.color = "darkgray";
-    //    console.log(A.innerText); 
-    //    if (letterText.textContent.includes("A")) {
-    //     letterText.style.color = "black";
-    //    } 
-    // for every p element 
     let j = 0; 
     let letterMatch = false; 
 
     while (j < letters.length) {
         console.log(j);
         // see if matches letter A
-        if (letters[j].textContent === "A"){
+        if (letters[j].textContent === currentLetter){
             //if does, make visible
             letters[j].style.color = "black";
             letterMatch = true;
         };
         j = j+1;
     }
-    console.log("Found Letter A:" + letterMatch);
+    console.log("Found Letter " + currentLetter + ":" + letterMatch);
 
     // if no letters matc
     if(letterMatch === false){
         //subtract 1 from remaining guesses
         level1.guesses -= 1;
+    }
+    if(level1.guesses === 5){
+        document.getElementById("ufo").style.width = "30%";
+        document.getElementById("ufo").style.borderBottom = "30px";
+        document.getElementById("ufo").style.marginLeft = "10px";
+    } else if(level1.guesses === 4){
+        document.getElementById("ufo").style.width = "40%";
+        document.getElementById("ufo").style.borderBottom = "20px";
+        document.getElementById("ufo").style.marginLeft = "20px";
+    } else if(level1.guesses === 3){
+        document.getElementById("ufo").style.width = "50%";
+        document.getElementById("ufo").style.borderBottom = "10px";
+        document.getElementById("ufo").style.marginLeft = "30px";
+    } else if(level1.guesses === 2){
+        document.getElementById("ufo").style.width = "60%";
+        document.getElementById("ufo").style.borderBottom = "0px";
+        document.getElementById("ufo").style.marginLeft = "30px";
+    } else if(level1.guesses === 1){
+        document.getElementById("ufo").style.width = "70%";
+        document.getElementById("ufo").style.borderBottom = "-10px";
+        document.getElementById("ufo").style.marginLeft = "30px";
+    } else if(level1.guesses === 0){
+        document.getElementById("field").style="display: none";
+        document.getElementById("lost").style="display: block";
+        document.getElementById("ufo").style="display: none";
+        alert("You've been abducted. Enjoy your new life as an astronaut.");
+        alert("Refresh page to try again");
     }
     document.querySelector("#remainingGuesses").innerHTML = " " + level1.guesses;
 
@@ -93,262 +119,43 @@ document.getElementById("A").addEventListener('click', (e) => {
             allLettersBlack = false;
         }
         l = l+1;
+        }
+        if(allLettersBlack === true){
+            alert("Winner!!");
+            location.reload();
+            
     }
     console.log("allLettersBlack = " + allLettersBlack);
-})    
-document.getElementById("B").addEventListener('click', (e) => {
-    e.target.style.backgroundColor = "black";
-    e.target.style.color = "darkgray";
-    console.log(B.innerText);  
-    if (letterText.textContent.includes("B")) {
-     letterText.style.color = "black";
-    }else {
-        level1.guesses -= 1;
-        console.log(level1.guesses);
-    }
-})  
-document.getElementById("C").addEventListener('click', (e) => {
-    e.target.style.backgroundColor = "black";
-    e.target.style.color = "darkgray";
-    console.log(C.innerText);    
-    if (letterText.textContent.includes("C")) {
-     letterText.style.color = "black";
-    } else {
-        level1.guesses -= 1;
-        console.log(level1.guesses);
-    }
-})  
-document.getElementById("D").addEventListener('click', (e) => {
-    e.target.style.backgroundColor = "black";
-    e.target.style.color = "darkgray";
-    console.log(D.innerText); 
-    guesses -= 1;
-    if (letterText.textContent.includes("D")) {
-     letterText.style.color = "black";
-    }
 
-})  
-document.getElementById("E").addEventListener('click', (e) => {
-    e.target.style.backgroundColor = "black";
-    e.target.style.color = "darkgray";
-    console.log(E.innerText);    
-    guesses -= 1;
-    if (letterText.textContent.includes("E")) {
-     letterText.style.color = "black";
-    }
+}
+function clickGuess () {
 
-})  
-document.getElementById("F").addEventListener('click', (e) => {
-    e.target.style.backgroundColor = "black";
-    e.target.style.color = "darkgray";
-    console.log(F.innerText);    
-    guesses -= 1;
-    if (letterText.textContent.includes("F")) {
-     letterText.style.color = "black";
-    }
-
-})  
-document.getElementById("G").addEventListener('click', (e) => {
-    e.target.style.backgroundColor = "black";
-    e.target.style.color = "darkgray";
-    console.log(G.innerText);    
-    guesses -= 1;
-    if (letterText.textContent.includes("G")) {
-     letterText.style.color = "black";
-    }
-
-})  
-document.getElementById("H").addEventListener('click', (e) => {
-    e.target.style.backgroundColor = "black";
-    e.target.style.color = "darkgray";
-    console.log(H.innerText);    
-    guesses -= 1;
-    if (letterText.textContent.includes("H")) {
-     letterText.style.color = "black";
-    }
-
-})  
-document.getElementById("I").addEventListener('click', (e) => {
-    e.target.style.backgroundColor = "black";
-    e.target.style.color = "darkgray";
-    console.log(I.innerText);    
-    guesses -= 1;
-    if (letterText.textContent.includes("I")) {
-     letterText.style.color = "black";
-    }
-
-})  
-document.getElementById("J").addEventListener('click', (e) => {
-    e.target.style.backgroundColor = "black";
-    e.target.style.color = "darkgray";
-    console.log(J.innerText);    
-    guesses -= 1;
-    if (letterText.textContent.includes("J")) {
-     letterText.style.color = "black";
-    }
-
-})  
-document.getElementById("K").addEventListener('click', (e) => {
-    e.target.style.backgroundColor = "black";
-    e.target.style.color = "darkgray";
-    console.log(K.innerText);    
-    guesses -= 1;
-    if (letterText.textContent.includes("K")) {
-     letterText.style.color = "black";
-    }
-
-})  
-document.getElementById("L").addEventListener('click', (e) => {
-    e.target.style.backgroundColor = "black";
-    e.target.style.color = "darkgray";
-    console.log(L.innerText);    
-    guesses -= 1;
-    if (letterText.textContent.includes("L")) {
-     letterText.style.color = "black";
-    }
-
-})  
-document.getElementById("M").addEventListener('click', (e) => {
-    e.target.style.backgroundColor = "black";
-    e.target.style.color = "darkgray";
-    console.log(M.innerText);   
-    guesses -= 1;
-    if (letterText.textContent.includes("M")) {
-     letterText.style.color = "black";
-    }
-
-})  
-document.getElementById("N").addEventListener('click', (e) => {
-    e.target.style.backgroundColor = "black";
-    e.target.style.color = "darkgray";
-    console.log(N.innerText);    
-    guesses -= 1;
-    if (letterText.textContent.includes("N")) {
-     letterText.style.color = "black";
-    }
-
-})  
-document.getElementById("O").addEventListener('click', (e) => {
-    e.target.style.backgroundColor = "black";
-    e.target.style.color = "darkgray";
-    console.log(O.innerText);    
-    guesses -= 1;
-    if (letterText.textContent.includes("O")) {
-     letterText.style.color = "black";
-    }
-
-})  
-document.getElementById("P").addEventListener('click', (e) => {
-    e.target.style.backgroundColor = "black";
-    e.target.style.color = "darkgray";
-    console.log(P.innerText);    
-    guesses -= 1;
-    if (letterText.textContent.includes("P")) {
-     letterText.style.color = "black";
-    }
-
-})  
-document.getElementById("Q").addEventListener('click', (e) => {
-    e.target.style.backgroundColor = "black";
-    e.target.style.color = "darkgray";
-    console.log(Q.innerText);    
-    guesses -= 1;
-    if (letterText.textContent.includes("Q")) {
-     letterText.style.color = "black";
-    }
-
-})  
-document.getElementById("R").addEventListener('click', (e) => {
-    e.target.style.backgroundColor = "black";
-    e.target.style.color = "darkgray";
-    console.log(R.innerText);    
-    guesses -= 1;
-    if (letterText.textContent.includes("R")) {
-     letterText.style.color = "black";
-    }
-
-})  
-document.getElementById("S").addEventListener('click', (e) => {
-    e.target.style.backgroundColor = "black";
-    e.target.style.color = "darkgray";
-    console.log(S.innerText);   
-    guesses -= 1;
-    if (letterText.textContent.includes("S")) {
-     letterText.style.color = "black";
-    }
-
-})  
-document.getElementById("T").addEventListener('click', (e) => {
-    e.target.style.backgroundColor = "black";
-    e.target.style.color = "darkgray";
-    console.log(T.innerText);    
-    guesses -= 1;
-    if (letterText.textContent.includes("T")) {
-     letterText.style.color = "black";
-    }
-
-})  
-document.getElementById("U").addEventListener('click', (e) => {
-    e.target.style.backgroundColor = "black";
-    e.target.style.color = "darkgray";
-    console.log(U.innerText);   
-    guesses -= 1;
-    if (letterText.textContent.includes("U")) {
-     letterText.style.color = "black";
-    }
-
-})  
-document.getElementById("V").addEventListener('click', (e) => {
-    e.target.style.backgroundColor = "black";
-    e.target.style.color = "darkgray";
-    console.log(V.innerText);    
-    guesses -= 1;
-    if (letterText.textContent.includes("V")) {
-     letterText.style.color = "black";
-    }
-
-})  
-document.getElementById("W").addEventListener('click', (e) => {
-    e.target.style.backgroundColor = "black";
-    e.target.style.color = "darkgray";
-    console.log(W.innerText);   
-    guesses -= 1;
-    if (letterText.textContent.includes("W")) {
-     letterText.style.color = "black";
-    }
-
-})  
-document.getElementById("X").addEventListener('click', (e) => {
-    e.target.style.backgroundColor = "black";
-    e.target.style.color = "darkgray";
-    console.log(X.innerText);    
-    guesses -= 1;
-    if (letterText.textContent.includes("X")) {
-     letterText.style.color = "black";
-    }
-
-})  
-document.getElementById("Y").addEventListener('click', (e) => {
-    e.target.style.backgroundColor = "black";
-    e.target.style.color = "darkgray";
-    console.log(Y.innerText);  
-    guesses -= 1;
-    if (letterText.textContent.includes("Y")) {
-     letterText.style.color = "black";
-    }
-
-})  
-document.getElementById("Z").addEventListener('click', (e) => {
-    e.target.style.backgroundColor = "black";
-    e.target.style.color = "darkgray";
-    console.log(Z.innerText);    
-    guesses -= 1;
-    if (letterText.textContent.includes("Z")) {
-     letterText.style.color = "black";
-    }
-
-})  
-
+    document.getElementById("A").addEventListener('click', btnClickListener);
+    document.getElementById("B").addEventListener('click', btnClickListener);
+    document.getElementById("C").addEventListener('click', btnClickListener);
+    document.getElementById("D").addEventListener('click', btnClickListener);
+    document.getElementById("E").addEventListener('click', btnClickListener);
+    document.getElementById("F").addEventListener('click', btnClickListener);
+    document.getElementById("G").addEventListener('click', btnClickListener);
+    document.getElementById("H").addEventListener('click', btnClickListener);
+    document.getElementById("I").addEventListener('click', btnClickListener);
+    document.getElementById("J").addEventListener('click', btnClickListener);
+    document.getElementById("K").addEventListener('click', btnClickListener);
+    document.getElementById("L").addEventListener('click', btnClickListener);
+    document.getElementById("M").addEventListener('click', btnClickListener);
+    document.getElementById("N").addEventListener('click', btnClickListener);
+    document.getElementById("O").addEventListener('click', btnClickListener);
+    document.getElementById("P").addEventListener('click', btnClickListener);
+    document.getElementById("Q").addEventListener('click', btnClickListener);
+    document.getElementById("R").addEventListener('click', btnClickListener);
+    document.getElementById("S").addEventListener('click', btnClickListener);
+    document.getElementById("T").addEventListener('click', btnClickListener);
+    document.getElementById("U").addEventListener('click', btnClickListener);
+    document.getElementById("V").addEventListener('click', btnClickListener);
+    document.getElementById("W").addEventListener('click', btnClickListener);
+    document.getElementById("X").addEventListener('click', btnClickListener);
+    document.getElementById("Y").addEventListener('click', btnClickListener);
+    document.getElementById("Z").addEventListener('click', btnClickListener);
 }
 
 // When player chooses a letter

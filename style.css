@@ -1,10 +1,12 @@
 body {
     font-family: 'Anek Latin', sans-serif;
+    border: 3px solid black;
     
 }
 
 #gameName {
-    margin: 0 auto;
+    border-top: 0;
+    margin-bottom: -20px;
     padding-bottom: 5px;
 }
 
@@ -13,11 +15,6 @@ header {
     font-size: 30px;
     text-align: center;
     margin: 0 auto;
-}
-
-
-input {
-    align-items: flex-end;
 }
 
 header span {
@@ -29,15 +26,22 @@ h3 {
     margin-top: -40px;
 }
 #ufo {
-    display: block;
+    display: block ;
     width: 20%;
-    float: right;
+    /* margin-left: 100px; */
+    margin-top: 30px ;
+
 }
 
 #field {
-    display: block;
-    padding: auto;
     margin: 0 auto;
+    width: 100%;
+    align-items: center;
+}
+
+#lost {
+    margin: 0 auto;
+    width: 100%;
     align-items: center;
 }
 
@@ -67,7 +71,6 @@ h3 {
 }
 
 #guesses {
-
     margin: auto;
     background-color: black;
     text-align: center;
@@ -80,19 +83,40 @@ h3 {
     padding-bottom: 5px;
 }
 #guesses button {
-    margin: auto;
+    margin: 0 auto;
     justify-content: center;
     padding: 5px;
     font-size: 25px;
 }
 .letter {
     width: 50px;
-    height: 50px;
 }
-#guessesLeft {
-    font-size: 20px;
-}
-.letter p {
-    border-bottom: 1px solid black;
 
+#guessesLeft {
+    padding-bottom: 5px;
+    padding-left: 2px;
+    font-weight: bold;
+    font-size: 25px;
+    color: white;
+    background-color: black;
+}
+
+.letter p {
+    margin-top: 0;
+    border-bottom: 1px solid black;
+    font-size: 40px;
+    text-align: center;
+
+}
+#secretLabel {
+    margin-top: -30px;
+    font-size: 30px;
+    text-align: center;
+}
+#restart button {
+    margin: 0 auto;
+    justify-content: center;
+    font-size: 15px;
+    color: white;
+    background-color: black;
 }

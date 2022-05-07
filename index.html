@@ -14,6 +14,9 @@
 <body>
     <div id="gameName">
     <header>
+        <div id="restart">
+            <button type="button" style="display: none">Restart</button>
+        </div>
         <h1>Astro-<span>Not</span></h1>
     </header>    
         <h3>A 'Hangman/Spaceman' Style Guessing Game</h3>
@@ -24,15 +27,17 @@
     </div>
     <div id="afterStart" style="display: none">
         <div id="guessesLeft">Remaining Guesses:<span id="remainingGuesses"> </span></div>
-        <br>
-        <div id="secret">
+        <div id="secretLabel">
             <p> Secret Word: </p>
+        </div>    
+        <div id="secret">
         </div>
         <div id="underScores"></div>
         
     </div>
     <img id="ufo" src="/Assets/UFO1.png">
-    <img id="field" src="/Assets/Project 1 Field.png">
+    <img id="field" src="/Assets/Project 1 Field1.png">
+    <img id="lost" src="/Assets/Project 1 Field Lost.png" style="display: none">
 
     <div id="guesses">
         <p>Choose Your Letter:</p>
@@ -63,5 +68,6 @@
         <button id="Y" type="button">Y</button>
         <button id="Z" type="button">Z</button> 
     </div>
+
 </body>
 </html>
