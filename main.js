@@ -19,7 +19,6 @@ let level1 = new SecretWord(0,['ADULT','AGENT','ANGER','APPLE','AWARD','BEACH','
 start.addEventListener('click', () => {
 
    answer = level1.words[Math.floor(Math.random() * level1.words.length)];
-   console.log(answer); 
    for (let i=0 ; i < answer.length; i++) {
     const letterDiv = document.createElement('div');
     const letterText = document.createElement("p");
@@ -63,7 +62,6 @@ function btnClickListener(e) {
     let letterMatch = false; 
 
     while (j < letters.length) {
-        console.log(j);
         // see if matches letter A
         if (letters[j].textContent === currentLetter){
             //if does, make visible
@@ -72,8 +70,6 @@ function btnClickListener(e) {
         };
         j = j+1;
     }
-    console.log("Found Letter " + currentLetter + ":" + letterMatch);
-
     // if no letters matc
     if(letterMatch === false){
         //subtract 1 from remaining guesses
@@ -111,11 +107,9 @@ function btnClickListener(e) {
     let allLettersBlack = true;
     let l = 0;
     //if allLettersBlack = true
-    console.log("Checking to see if all elements are black")
     while(l < letters.length){
         //player has won the game
         if(letters[l].style.color == "white"){ 
-            console.log("Found white element at " + l )
             allLettersBlack = false;
         }
         l = l+1;
@@ -125,7 +119,6 @@ function btnClickListener(e) {
             location.reload();
             
     }
-    console.log("allLettersBlack = " + allLettersBlack);
 
 }
 function clickGuess () {
